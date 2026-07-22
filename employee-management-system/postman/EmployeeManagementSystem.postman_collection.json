@@ -1,0 +1,43 @@
+{
+  "info": {
+    "name": "Employee Management System",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8080/api" }
+  ],
+  "item": [
+    {
+      "name": "Departments",
+      "item": [
+        { "name": "Create Department", "request": { "method": "POST", "header": [{"key":"Content-Type","value":"application/json"}], "url": "{{baseUrl}}/departments", "body": { "mode": "raw", "raw": "{\n  \"name\": \"Engineering\",\n  \"location\": \"Hyderabad\"\n}" } } },
+        { "name": "Get All Departments", "request": { "method": "GET", "url": "{{baseUrl}}/departments" } },
+        { "name": "Get Department By Id", "request": { "method": "GET", "url": "{{baseUrl}}/departments/1" } },
+        { "name": "Update Department", "request": { "method": "PUT", "header": [{"key":"Content-Type","value":"application/json"}], "url": "{{baseUrl}}/departments/1", "body": { "mode": "raw", "raw": "{\n  \"name\": \"Engineering\",\n  \"location\": \"Pune\"\n}" } } },
+        { "name": "Delete Department", "request": { "method": "DELETE", "url": "{{baseUrl}}/departments/1" } }
+      ]
+    },
+    {
+      "name": "Employees",
+      "item": [
+        { "name": "Create Employee", "request": { "method": "POST", "header": [{"key":"Content-Type","value":"application/json"}], "url": "{{baseUrl}}/employees?departmentId=1", "body": { "mode": "raw", "raw": "{\n  \"name\": \"Ravi Kumar\",\n  \"email\": \"ravi.kumar@example.com\",\n  \"phone\": \"9876543210\",\n  \"designation\": \"Software Engineer\",\n  \"salary\": 650000,\n  \"dateOfJoining\": \"2024-01-15\"\n}" } } },
+        { "name": "Get All Employees", "request": { "method": "GET", "url": "{{baseUrl}}/employees" } },
+        { "name": "Get Employee By Id", "request": { "method": "GET", "url": "{{baseUrl}}/employees/1" } },
+        { "name": "Get Employees By Department", "request": { "method": "GET", "url": "{{baseUrl}}/employees/department/1" } },
+        { "name": "Search Employees By Name", "request": { "method": "GET", "url": "{{baseUrl}}/employees/search?name=Ravi" } },
+        { "name": "Update Employee", "request": { "method": "PUT", "header": [{"key":"Content-Type","value":"application/json"}], "url": "{{baseUrl}}/employees/1?departmentId=1", "body": { "mode": "raw", "raw": "{\n  \"name\": \"Ravi Kumar\",\n  \"email\": \"ravi.kumar@example.com\",\n  \"phone\": \"9876543210\",\n  \"designation\": \"Senior Software Engineer\",\n  \"salary\": 800000,\n  \"dateOfJoining\": \"2024-01-15\"\n}" } } },
+        { "name": "Delete Employee", "request": { "method": "DELETE", "url": "{{baseUrl}}/employees/1" } }
+      ]
+    },
+    {
+      "name": "Attendance",
+      "item": [
+        { "name": "Mark Attendance", "request": { "method": "POST", "header": [{"key":"Content-Type","value":"application/json"}], "url": "{{baseUrl}}/attendance/employee/1", "body": { "mode": "raw", "raw": "{\n  \"date\": \"2026-07-16\",\n  \"status\": \"PRESENT\"\n}" } } },
+        { "name": "Get Attendance By Employee", "request": { "method": "GET", "url": "{{baseUrl}}/attendance/employee/1" } },
+        { "name": "Get Attendance By Date", "request": { "method": "GET", "url": "{{baseUrl}}/attendance/date/2026-07-16" } },
+        { "name": "Update Attendance", "request": { "method": "PUT", "header": [{"key":"Content-Type","value":"application/json"}], "url": "{{baseUrl}}/attendance/1", "body": { "mode": "raw", "raw": "{\n  \"date\": \"2026-07-16\",\n  \"status\": \"ON_LEAVE\"\n}" } } },
+        { "name": "Delete Attendance", "request": { "method": "DELETE", "url": "{{baseUrl}}/attendance/1" } }
+      ]
+    }
+  ]
+}

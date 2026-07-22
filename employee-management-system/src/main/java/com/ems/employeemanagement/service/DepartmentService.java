@@ -1,0 +1,13 @@
+package com.ems.employeemanagement.service;
+
+import com.ems.employeemanagement.model.Department;
+
+import java.util.List;
+
+public interface DepartmentService {
+    Department createDepartment(Department department);
+    Department getDepartmentById(Long id);
+    List<Department> getAllDepartments();
+    Department updateDepartment(Long id, Department department);
+    void deleteDepartment(Long id);
+}
